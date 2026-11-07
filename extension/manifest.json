@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Hide My Email · Local",
-  "version": "0.3.0",
+  "name": "jm's Hide My Email for Chrome",
+  "version": "0.3.1",
   "minimum_chrome_version": "112",
   "description": "Create, copy, and fill iCloud Hide My Email addresses from your toolbar.",
   "action": {
-    "default_title": "Hide My Email",
+    "default_title": "jm's Hide My Email for Chrome",
     "default_popup": "popup.html",
     "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
   },

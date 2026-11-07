@@ -1,4 +1,4 @@
-# Hide My Email · Local
+# jm's Hide My Email for Chrome
 
 A small Chrome extension for iCloud Hide My Email. Focus an email field and
 click **Use saved email** to reuse a site’s address, or create one for a new site.
@@ -8,7 +8,7 @@ No build step, framework, account system, or runtime dependencies.
 
 1. Open `chrome://extensions` and turn on **Developer mode**.
 2. Click **Load unpacked**, then select `~/development/hide-my-email/extension`.
-3. Pin **Hide My Email · Local** from Chrome’s extensions menu.
+3. Pin **jm's Hide My Email for Chrome** from Chrome’s extensions menu.
 4. Sign in at https://www.icloud.com/ in the **same Chrome profile**. Complete any
    verification or terms prompts. If Apple asks, trust this browser.
 5. Click the extension, then **I’m signed in — try again** if needed.
@@ -18,7 +18,7 @@ supports `icloud.com`; mainland China accounts using `icloud.com.cn` are outside
 its current scope. Incognito is disabled by default; use your normal profile.
 
 If updating an existing installation, open `chrome://extensions`, find
-**Hide My Email · Local**, and click its reload button. Version **0.2.0** adds
+**jm's Hide My Email for Chrome**, and click its reload button. Version **0.2.0** adds
 the email-field button and requests access to ordinary HTTP/HTTPS web pages
 so it can appear automatically. Approve the new site access if Chrome asks,
 then refresh any already-open page once. The browser request binding fix from

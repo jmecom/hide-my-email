@@ -85,7 +85,7 @@ export class ICloudClient {
     if (!validEmail(hme)) throw new ICloudError("iCloud didn’t return a valid new address.");
     try {
       const saved = await this.request(`${this.base}/v1/hme/reserve`, "POST", {
-        hme, label, note: "Created with Hide My Email · Local",
+        hme, label, note: "Created with jm's Hide My Email for Chrome",
       });
       if (saved.success !== true || saved.result?.hme?.hme !== hme) {
         throw new ICloudError("iCloud didn’t confirm the saved address.");
