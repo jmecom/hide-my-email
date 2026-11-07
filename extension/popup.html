@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hide My Email</title>
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <main>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+
+    <section id="signin" class="signin" hidden>
+      <p>Sign in to iCloud in this Chrome profile. Requires iCloud+.</p>
+      <a class="button primary" href="https://www.icloud.com/" target="_blank" rel="noreferrer">Sign in to iCloud ↗</a>
+      <button id="retry" class="button secondary">I’m signed in — try again</button>
+    </section>
+
+    <section id="workspace" hidden>
+      <form id="create-form" class="create-card">
+        <label for="label">Label</label>
+        <input id="label" name="label" placeholder="e.g. example.com" maxlength="256" required autocomplete="off">
+        <button id="create" type="submit" class="button primary"><span>＋</span> Create &amp; copy</button>
+        <p id="forward" class="hint" hidden></p>
+      </form>
+
+      <section id="created" class="created" hidden aria-label="Most recently created address">
+        <input id="created-address" aria-label="Created email address" readonly>
+        <div class="created-actions"><button id="copy-created" class="button secondary">Copy address</button><button id="fill-created" class="button secondary">Fill on page ↗</button></div>
+      </section>
+
+      <section class="existing" aria-labelledby="existing-title">
+        <div class="section-title"><h2 id="existing-title">Addresses</h2><div class="address-tools"><span id="count">0 active</span><button id="refresh" class="icon" title="Refresh addresses" aria-label="Refresh addresses">↻</button></div></div>
+        <input id="search" type="search" placeholder="Search label or address" aria-label="Search addresses" autocomplete="off">
+        <ul id="addresses" aria-label="Active email addresses"></ul>
+        <p id="empty" class="empty" hidden>No addresses.</p>
+      </section>
+    </section>
+  </main>
+  <footer><a href="https://www.icloud.com/icloudplus/" target="_blank" rel="noreferrer">Manage in iCloud ↗</a></footer>
+</body>
+</html>

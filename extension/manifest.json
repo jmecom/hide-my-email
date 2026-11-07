@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Hide My Email · Local",
+  "version": "0.3.0",
+  "minimum_chrome_version": "112",
+  "description": "Create, copy, and fill iCloud Hide My Email addresses from your toolbar.",
+  "action": {
+    "default_title": "Hide My Email",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png" }
+  },
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle",
+    "all_frames": true
+  }],
+  "permissions": ["activeTab", "scripting", "storage", "clipboardWrite", "declarativeNetRequestWithHostAccess"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'none'; connect-src https://*.icloud.com" }
+}
