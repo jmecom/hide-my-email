@@ -28,23 +28,6 @@ reads cookie values, or stores authentication tokens.
 | `clipboardWrite` | Copy an address. |
 | `storage` | Remember the last created email in memory for this browser session. |
 
-An isolated content script runs on ordinary HTTP/HTTPS pages and frames to
-watch focus events. This requires Chrome’s broad website-access permission;
-you can limit access through the extension’s Chrome settings if desired.
-It does not read passwords or submit forms. Focusing an email field validates
-your iCloud session and reads addresses to check for an existing site match.
-Only the hostname, not the page path,
-query, or form contents, is used as the label sent to Apple.
-Content scripts receive only a match count on focus. After a trusted user click
-they receive the matching site address or choices, never the whole account list
-or forwarding address. Concurrent requests for different sites are separate;
-default requests for the same site share one operation.
-Account address lists stay in popup or service-worker memory; only the last created email string goes into
-`chrome.storage.session`, which clears with the browser session. On each refresh,
-that string is shown only if present in the currently signed-in account’s list.
-Signing out of iCloud revokes future service access; an already-open popup may
-show its loaded list until refreshed.
-
 ## Development and verification
 
 Use Node.js 20+ (Node 22+ recommended). The extension itself needs no installation.
@@ -56,19 +39,6 @@ npm test
 npx playwright install chromium
 npm run test:browser
 ```
-
-Browser tests load the actual unpacked extension into an isolated Chromium
-profile. They use Chrome’s real worker `fetch`; Apple responses are intercepted
-at the network layer instead of replacing that function. No personal account
-is used, and no real aliases are created. Tests run a disposable copy of the
-shipping extension with its unchanged manifest and website permissions.
-Tests cover creation/reservation, copy/fill, search, safe rendering, sign-in
-expiry, errors, popup closure during creation, focus-triggered inline controls,
-hostname labels, cross-origin frames, separate concurrent tab requests,
-keyboard dismissal, site-address reuse, multiple-match selection, duplicate
-prevention, and preserving values typed during creation.
-Screenshots are written to `test-results/`. Real iCloud account behavior requires
-a signed-in manual check after installation.
 
 Apple’s Hide My Email web endpoints are **unofficial** and can change. This is a
 personal-use integration, unaffiliated with Apple. If sign-in keeps failing,
