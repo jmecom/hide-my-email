@@ -12,21 +12,11 @@ click **Use saved email** to reuse a site’s address, or create one for a new s
    verification or terms prompts. If Apple asks, trust this browser.
 5. Click the extension, then **I’m signed in — try again** if needed.
 
-You need iCloud+ with Hide My Email available on your Apple Account. This version
-supports `icloud.com`; mainland China accounts using `icloud.com.cn` are outside
-its current scope. Incognito is disabled by default; use your normal profile.
-
-If updating an existing installation, open `chrome://extensions`, find
-**jm's Hide My Email for Chrome**, and click its reload button. Version **0.2.0** adds
-the email-field button and requests access to ordinary HTTP/HTTPS web pages
-so it can appear automatically. Approve the new site access if Chrome asks,
-then refresh any already-open page once. The browser request binding fix from
-0.1.1 is included.
+You need iCloud+ with Hide My Email available on your Apple Account.
 
 ## Privacy and permissions
 
-All service requests go directly from Chrome to Apple. No analytics, remote code,
-third-party server, or external assets. Authentication uses your existing browser
+All service requests go directly from Chrome to Apple. Authentication uses your existing browser
 session (`credentials: include`); the extension never asks for your password,
 reads cookie values, or stores authentication tokens.
 
