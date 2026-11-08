@@ -2,7 +2,6 @@
 
 A small Chrome extension for iCloud Hide My Email. Focus an email field and
 click **Use saved email** to reuse a site’s address, or create one for a new site.
-No build step, framework, account system, or runtime dependencies.
 
 ## Install in Chrome
 
@@ -23,46 +22,6 @@ the email-field button and requests access to ordinary HTTP/HTTPS web pages
 so it can appear automatically. Approve the new site access if Chrome asks,
 then refresh any already-open page once. The browser request binding fix from
 0.1.1 is included.
-
-## Use
-
-- Click an empty email field on a website. If an active address is labelled for
-  that hostname, **Use saved email** fills it. Multiple matches offer a chooser.
-  Matching ignores `www.`, letter case, and URL paths. Unrelated domains and
-  custom labels without a hostname are not guessed.
-- For a new site, **Create a hidden email** creates, saves, and fills an address
-  labelled with its hostname. When an address exists, **Create another** remains
-  a separate action. The default action rechecks Apple before creating so a
-  stale lookup or two tabs on the same site won’t create duplicate aliases.
-- The button leaves room for Chrome’s native autofill menu. If there is no room
-  above the field it uses the side, or the bottom edge on narrow screens.
-- The button also works in supported embedded frames and dynamically added
-  forms. Embedded forms use the main website’s hostname as their label.
-- Press **Down Arrow** from the field to focus the button, or **Escape** to
-  dismiss it. Password fields and fields with existing values are left alone.
-- Open the extension on a website. The label defaults to that site’s hostname.
-- Click **Create & copy**. The extension generates **and saves** the address with
-  Apple before copying it. Paste it wherever you need it.
-- **Fill on page** fills the focused text/email field, or the single email field
-  on the page. It dispatches input/change events for common web frameworks. It
-  won’t replace a field that already contains a different value.
-- Search active addresses by label or email. Each has **Copy** and **Fill**.
-- **Manage in iCloud** opens Apple’s settings for deactivation or other changes.
-- Address creation continues if the popup closes. Reopen it to recover the last
-  saved address during the current browser session.
-
-Addresses are created only when you click the inline create button or the
-toolbar’s **Create & copy**. Focusing a field looks up existing addresses but
-never creates one. Read-only lookups are shared for up to 15 seconds; selecting
-the default action always checks the current account again.
-Closed shadow roots, special sandboxed frames, Chrome internal pages, and the
-Chrome Web Store may require copying and pasting. Toolbar **Fill** operates in
-the main frame; the inline button works inside ordinary permitted frames.
-The extension never submits a form. A label is required when there is no website
-hostname to use. Clipboard failure leaves the saved address selected for manual
-copying. If a reservation fails, refresh the list before creating another address:
-a network error can occur after Apple has saved it. There are no automatic
-mutation retries.
 
 ## Privacy and permissions
 
